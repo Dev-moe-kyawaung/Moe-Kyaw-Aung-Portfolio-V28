@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Meta tags for SEO and responsiveness -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Moe Kyaw Aung - Android Senior Developer with 12+ years experience in Kotlin, Jetpack Compose, Firebase, and clean architecture.">
+    <meta name="keywords" content="Android Developer, Kotlin, Jetpack Compose, Firebase, Mobile Development, Senior Developer">
+    <meta name="author" content="Moe Kyaw Aung">
+    <title>Moe-Kyaw-Aung-Portfolio V28 | Android Senior Developer</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Moe-Kyaw-Aung-Portfolio V28 | Android Senior Developer">
+    <meta property="og:description" content="12+ years building secure, scalable Android apps with Kotlin & Jetpack">
+    <meta property="og:image" content="https://res.cloudinary.com/dye5qpwii/image/upload/v1778527878/IMG_20260430_053105_uef0yr.png">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Config for custom colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'honey-orange': '#FF9644',
+                        'peach': '#FFCE99',
+                        'deep-brown': '#562F00',
+                        'warm-white': '#FFFDF1'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --honey-orange: #FF9644;
+            --peach: #FFCE99;
+            --deep-brown: #562F00;
+            --warm-white: #FFFDF1;
+            --text-dark: #2D1B14;
+            --text-light: #6B4E31;
+        }
+        
+        [data-theme="dark"] {
+            --warm-white: #1a1a1a;
+            --text-dark: #f5f5f5;
+            --text-light: #b0b0b0;
+            --honey-orange: #ff8c00;
+            --peach: #e68a00;
+        }
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: var(--warm-white);
+            color: var(--text-dark);
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom Cursor */
+        body.custom-cursor {
+            cursor: none;
+        }
+        
+        .custom-cursor .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--honey-orange);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            mix-blend-mode: difference;
+        }
+        
+        .custom-cursor .cursor-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            background: var(--honey-orange);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.3;
+            transition: transform 0.2s ease;
+        }
+        
+        /* Parallax Effect */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--honey-orange), var(--peach));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease;
+        }
+        
+        /* Scroll Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in-up.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Sticky CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .sticky-cta.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Hamburger Animation */
+        .hamburger span {
+            transition: 0.3s ease;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+    </style>
+</head>
+<body class="custom-cursor" data-theme="light">
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="text-4xl text-white animate-pulse">
+            <i class="fas fa-mobile-alt"></i>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-warm-white/95 backdrop-blur-md z-50 border-b border-peach/30 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <a href="#home" class="text-2xl font-bold bg-gradient-to-r from-honey-orange to-deep-brown bg-clip-text text-transparent">
+                    Moe-Kyaw-Aung V28
+                </a>
+                
+                <!-- Desktop Menu -->
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#home" class="nav-link text-lg font-medium hover:text-honey-orange transition-all duration-300 relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-honey-orange group-hover:w-full transition-all duration-300"></span>
+                    </a></li>
+                    <li><a href="#about" class="nav-link text-lg font-medium hover:text-honey-orange transition-all duration-300 relative group">
+                        About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-honey-orange group-hover:w-full transition-all duration-300"></span>
+                    </a></li>
+                    <li><a href="#skills" class="nav-link text-lg font-medium hover:text-honey-orange transition-all duration-300 relative group">
+                        Skills
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-honey-orange group-hover:w-full transition-all duration-300"></span>
+                    </a></li>
+                    <li><a href="#portfolio" class="nav-link text-lg font-medium hover:text-honey-orange transition-all duration-300 relative group">
+                        Portfolio
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-honey-orange group-hover:w-full transition-all duration-300"></span>
+                    </a></li>
+                    <li><a href="#github" class="nav-link text-lg font-medium hover:text-honey-orange transition-all duration-300 relative group">
+                        GitHub
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-honey-orange group-hover:w-full transition-all duration-300"></span>
+                    </a></li>
+                    <li><a href="#contact" class="nav-link text-lg font-medium hover:text-honey-orange transition-all duration-300 relative group">
+                        Contact
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-honey-orange group-hover:w-full transition-all duration-300"></span>
+                    </a></li>
+                </ul>
+                
+                <!-- Right side controls -->
+                <div class="flex items-center space-x-4">
+                    <!-- Dark/Light Toggle -->
+                    <button id="themeToggle" class="p-2 rounded-full bg-peach/20 hover:bg-peach/40 transition-all duration-300" title="Toggle Theme">
+                        <i class="fas fa-sun text-xl"></i>
+                    </button>
+                    
+                    <!-- Mobile menu button -->
+                    <button class="md:hidden hamburger p-2 rounded-lg bg-peach/20 hover:bg-peach/40 transition-all duration-300" id="mobileMenuBtn">
+                        <span class="block w-6 h-0.5 bg-deep-brown mb-1"></span>
+                        <span class="block w-6 h-0.5 bg-deep-brown mb-1"></span>
+                        <span class="block w-6 h-0.5 bg-deep-brown"></span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden pb-4" id="mobileMenu">
+                <ul class="space-y-4 pt-4 border-t border-peach/30">
+                    <li><a href="#home" class="block py-2 nav-link font-medium hover:text-honey-orange">Home</a></li>
+                    <li><a href="#about" class="block py-2 nav-link font-medium hover:text-honey-orange">About</a></li>
+                    <li><a href="#skills" class="block py-2 nav-link font-medium hover:text-honey-orange">Skills</a></li>
+                    <li><a href="#portfolio" class="block py-2 nav-link font-medium hover:text-honey-orange">Portfolio</a></li>
+                    <li><a href="#github" class="block py-2 nav-link font-medium hover:text-honey-orange">GitHub</a></li>
+                    <li><a href="#contact" class="block py-2 nav-link font-medium hover:text-honey-orange">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Canvas Background -->
+    <section id="home" class="min-h-screen flex items-center relative overflow-hidden pt-20">
+        <!-- Canvas Background -->
+        <canvas id="heroCanvas" class="absolute inset-0 w-full h-full z-0"></canvas>
+        
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-warm-white/80 via-transparent to-peach/20 z-10"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 max-w-6xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div class="fade-in-up lg:order-2">
+                    <div class="max-w-lg">
+                        <h1 class="text-5xl md:text-7xl font-bold bg-gradient-to-r from-honey-orange via-deep-brown to-peach bg-clip-text text-transparent mb-6 leading-tight">
+                            Android Senior<br>
+                            <span class="text-6xl md:text-8xl">Developer</span>
+                        </h1>
+                        <p class="text-xl md:text-2xl text-text-light mb-8 leading-relaxed">
+                            12+ years building secure, scalable, and user-friendly<br>
+                            <strong class="text-honey-orange">Android applications</strong> with modern Jetpack & Kotlin
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#contact" class="btn-primary group">
+                                <span>Start Project</span>
+                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                            <a href="#portfolio" class="btn-secondary group">
+                                <span>View Work</span>
+                                <i class="fas fa-eye ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Image -->
+                <div class="fade-in-up lg:order-1">
+                    <div class="relative">
+                        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778527878/IMG_20260430_053105_uef0yr.png" 
+                             alt="Moe Kyaw Aung - Android Senior Developer" 
+                             class="w-full max-w-md mx-auto rounded-3xl shadow-2xl ring-4 ring-honey-orange/20 hover:scale-105 transition-all duration-500 object-cover">
+                        <div class="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-r from-honey-orange to-peach rounded-2xl shadow-lg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-gradient-to-b from-warm-white to-peach/10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+            <div class="text-center mb-20 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-deep-brown to-honey-orange bg-clip-text text-transparent mb-6">
+                    About Me
+                </h2>
+                <div class="w-24 h-1 bg-honey-orange mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in-up">
+                    <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763535/MKA_25_lbx6fb.webp" 
+                         alt="Moe Kyaw Aung Profile" 
+                         class="w-full max-w-lg mx-auto rounded-3xl shadow-2xl hover:scale-105 transition-all duration-500">
+                </div>
+                
+                <div class="fade-in-up lg:pl-12">
+                    <div class="space-y-6">
+                        <h3 class="text-3xl font-bold text-deep-brown mb-4">Android Developer with 12 Years Experience</h3>
+                        <p class="text-lg text-text-light leading-relaxed">
+                            Passionate about building secure, scalable, and user-friendly mobile applications. 
+                            Expert in <strong>Kotlin</strong> and modern <strong>Jetpack development</strong> (Compose, ViewModel, Room), 
+                            Firebase integration, and REST API consumption. 
+                            I focus on clean architecture, maintainable code, and practical security.
+                        </p>
+                        <p class="text-lg text-text-light leading-relaxed">
+                            Comfortable delivering features end-to-end—from UI to networking, local caching, 
+                            testing, and release-ready builds. Always learning and adapting to the latest Android technologies.
+                        </p>
+                        
+                        <!-- Stats Counter -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+                            <div class="text-center p-6 bg-white/50 backdrop-blur-sm rounded-2xl hover:bg-white/80 transition-all duration-300">
+                                <div class="text-3xl md:text-4xl font-bold text-honey-orange mb-2" data-target="12">10+</div>
+                                <div class="text-text-light font-medium">Years Exp.</div>
+                            </div>
+                            <div class="text-center p-6 bg-white/50 backdrop-blur-sm rounded-2xl hover:bg-white/80 transition-all duration-300">
+                                <div class="text-3xl md:text-4xl font-bold text-honey-orange mb-2" data-target="500,000. ">43k</div>
+                                <div class="text-text-light font-medium">Projects</div>
+                            </div>
+                            <div class="text-center p-6 bg-white/50 backdrop-blur-sm rounded-2xl hover:bg-white/80 transition-all duration-300">
+                                <div class="text-3xl md:text-4xl font-bold text-peach mb-2" data-target="100  ">99 </div>
+                                <div class="text-text-light font-medium">Clients</div>
+                            </div>
+                            <div class="text-center p-6 bg-white/50 backdrop-blur-sm rounded-2xl hover:bg-white/80 transition-all duration-300">
+                                <div class="text-3xl md:text-4xl font-bold text-deep-brown mb-2" data-target="99k . ">20k </div>
+                                <div class="text-text-light font-medium">Success Rate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-warm-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+            <div class="text-center mb-20 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-honey-orange to-deep-brown bg-clip-text text-transparent mb-6">
+                    Technology Stack
+                </h2>
+                <div class="w-24 h-1 bg-peach mx-auto rounded-full"></div>
+            </div>
+            
+            <!-- Skills Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+                <div class="skill-card fade-in-up">
+                    <div class="text-4xl mb-4"><i class="fab fa-android text-honey-orange"></i></div>
+                    <h4 class="font-semibold text-lg mb-2">Android</h4>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-honey-orange h-2 rounded-full w-11/12 animate-pulse"></div>
+                    </div>
+                </div>
+                <div class="skill-card fade-in-up">
+                    <div class="text-4xl mb-4"><i class="fab fa-android-dev text-honey-orange"></i></div>
+                    <h4 class="font-semibold text-lg mb-2">Kotlin</h4>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-deep-brown h-2 rounded-full w-full"></div>
+                    </div>
+                </div>
+                <div class="skill-card fade-in-up">
+                    <div class="text-4xl mb-4"><i class="fas fa-paint-brush text-peach"></i></div>
+                    <h4 class="font-semibold text-lg mb-2">Jetpack Compose</h4>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-honey-orange h-2 rounded-full w-10/12"></div>
+                    </div>
+                </div>
+                <div class="skill-card fade-in-up">
+                    <div class="text-4xl mb-4"><i class="fas fa-database text-deep-brown"></i></div>
+                    <h4 class="font-semibold text-lg mb-2">Room DB</h4>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-peach h-2 rounded-full w-9/12"></div>
+                    </div>
+                </div>
+                <div class="skill-card fade-in-up">
+                    <div class="text-4xl mb-4"><i class="fas fa-fire text-honey-orange"></i></div>
+                    <h4 class="font-semibold text-lg mb-2">Firebase</h4>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-honey-orange to-peach h-2 rounded-full w-10/12"></div>
+                    </div>
+                </div>
+                <div class="skill-card fade-in-up">
+                    <div class="text-4xl mb-4"><i class="fas fa-server text-deep-brown"></i></div>
+                    <h4 class="font-semibold text-lg mb-2">REST APIs</h4>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-honey-orange h-2 rounded-full w-11/12"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-24 bg-gradient-to-b from-peach/10 to-warm-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+            <div class="text-center mb-20 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-deep-brown to-honey-orange bg-clip-text text-transparent mb-6">
+                    Featured Projects
+                </h2>
+                <div class="w-24 h-1 bg-honey-orange mx-auto rounded-full"></div>
+            </div>
+            
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="portfolio-card fade-in-up group cursor-pointer" data-lightbox="portfolio1">
+                    <div class="relative overflow-hidden rounded-3xl shadow-2xl group-hover:scale-105 transition-all duration-500 h-80 bg-gradient-to-br from-honey-orange to-peach">
+                        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763535/MKA_25_lbx6fb.webp" 
+                             alt="Project 1" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-deep-brown/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-6">
+                            <div>
+                                <h4 class="text-white font-bold text-xl mb-2">E-Commerce App</h4>
+                                <p class="text-white/90 text-sm mb-4">Full-stack Android app with Firebase & Jetpack Compose</p>
+                                <div class="flex space-x-2">
+                                    <span class="px-3 py-1 bg-white/20 rounded-full text-xs text-white">Kotlin</span>
+                                    <span class="px-3 py-1 bg-white/20 rounded-full text-xs text-white">Compose</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card fade-in-up group cursor-pointer" data-lightbox="portfolio2">
+                    <div class="relative overflow-hidden rounded-3xl shadow-2xl group-hover:scale-105 transition-all duration-500 h-80 bg-gradient-to-br from-peach to-honey-orange">
+                        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763531/MKA_12_iv8kpm.webp" 
+                             alt="Project 2" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-deep-brown/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-6">
+                            <div>
+                                <h4 class="text-white font-bold text-xl mb-2">Social Media App</h4>
+                                <p class="text-white/90 text-sm mb-4">Real-time chat with Firebase & Room database</p>
+                                <div class="flex space-x-2">
+                                    <span class="px-3 py-1 bg-white/20 rounded-full text-xs text-white">Firebase</span>
+                                    <span class="px-3 py-1 bg-white/20 rounded-full text-xs text-white">Room</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card fade-in-up group cursor-pointer" data-lightbox="portfolio3">
+                    <div class="relative overflow-hidden rounded-3xl shadow-2xl group-hover:scale-105 transition-all duration-500 h-80 bg-gradient-to-br from-deep-brown to-peach">
+                        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778747388/image-1_1_khsx9s.png" 
+                             alt="Project 3" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-honey-orange/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-6">
+                            <div>
+                                <h4 class="text-white font-bold text-xl mb-2">Fitness Tracker</h4>
+                                <p class="text-white/90 text-sm mb-4">Wear OS integration & Health Connect API</p>
+                                <div class="flex space-x-2">
+                                    <span class="px-3 py-1 bg-white/20 rounded-full text-xs text-white">Wear OS</span>
+                                    <span class="px-3 py-1 bg-white/20 rounded-full text-xs text-white">Kotlin</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Collections Section -->
+    <section id="github" class="py-24 bg-warm-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+            <div class="text-center mb-20 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-honey-orange to-peach bg-clip-text text-transparent mb-6">
+                    GitHub Collections
+                </h2>
+                <p class="text-xl text-text-light max-w-2xl mx-auto">Explore my extensive collection of GitHub repositories showcasing diverse development projects</p>
+            </div>
+            
+            <!-- GitHub Grid - First 12 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <a href="https://moekyawaung-china.github.io/" target="_blank" class="github-card fade-in-up group bg-gradient-to-br from-white to-peach/20 backdrop-blur-sm border border-peach/30 hover:border-honey-orange/50 hover:shadow-2xl transition-all duration-300 rounded-2xl p-8 h-48 flex flex-col justify-between hover:-translate-y-2">
+                    <div>
+                        <h4 class="font-bold text-xl text-deep-brown group-hover:text-honey-orange mb-2 truncate">moekyawaung-china</h4>
+                        <p class="text-text-light text-sm line-clamp-2">China-focused development projects and resources</p>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs bg-honey-orange/20 text-honey-orange px-3 py-1 rounded-full font-medium">Live Demo</span>
+                        <i class="fas fa-external-link-alt text-honey-orange ml-auto group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <a href="https://moekyawaung-developer.github.io/" target="_blank" class="github-card fade-in-up group bg-gradient-to-br from-white to-peach/20 backdrop-blur-sm border border-peach/30 hover:border-honey-orange/50 hover:shadow-2xl transition-all duration-300 rounded-2xl p-8 h-48 flex flex-col justify-between hover:-translate-y-2">
+                    <div>
+                        <h4 class="font-bold text-xl text-deep-brown group-hover:text-honey-orange mb-2 truncate">moekyawaung-developer</h4>
+                        <p class="text-text-light text-sm line-clamp-2">Developer portfolio and project showcases</p>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs bg-honey-orange/20 text-honey-orange px-3 py-1 rounded-full font-medium">Live Demo</span>
+                        <i class="fas fa-external-link-alt text-honey-orange ml-auto group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <a href="https://moekyawaungvivov30pro-design.github.io/" target="_blank" class="github-card fade-in-up group bg-gradient-to-br from-white to-peach/20 backdrop-blur-sm border border-peach/30 hover:border-honey-orange/50 hover:shadow-2xl transition-all duration-300 rounded-2xl p-8 h-48 flex flex-col justify-between hover:-translate-y-2">
+                    <div>
+                        <h4 class="font-bold text-xl text-deep-brown group-hover:text-honey-orange mb-2 truncate">vivo V30 Pro Design</h4>
+                        <p class="text-text-light text-sm line-clamp-2">Design system and UI components for Vivo V30 Pro</p>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs bg-honey-orange/20 text-honey-orange px-3 py-1 rounded-full font-medium">Live Demo</span>
+                        <i class="fas fa-external-link-alt text-honey-orange ml-auto group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <a href="https://moekyaw-aung-mm.github.io/" target="_blank" class="github-card fade-in-up group bg-gradient-to-br from-white to-peach/20 backdrop-blur-sm border border-peach/30 hover:border-honey-orange/50 hover:shadow-2xl transition-all duration-300 rounded-2xl p-8 h-48 flex flex-col justify-between hover:-translate-y-2">
+                    <div>
+                        <h4 class="font-bold text-xl text-deep-brown group-hover:text-honey-orange mb-2 truncate">moekyaw-aung-mm</h4>
+                        <p class="text-text-light text-sm line-clamp-2">Myanmar development projects and resources</p>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs bg-honey-orange/20 text-honey-orange px-3 py-1 rounded-full font-medium">Live Demo</span>
+                        <i class="fas fa-external-link-alt text-honey-orange ml-auto group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <a href="https://moekyawaung-mk.github.io/" target="_blank" class="github-card fade-in-up group bg-gradient-to-br from-white to-peach/20 backdrop-blur-sm border border-peach/30 hover:border-honey-orange/50 hover:shadow-2xl transition-all duration-300 rounded-2xl p-8 h-48 flex flex-col justify-between hover:-translate-y-2">
+                    <div>
+                        <h4 class="font-bold text-xl text-deep-brown group-hover:text-honey-orange mb-2 truncate">moekyawaung-mk</h4>
+                        <p class="text-text-light text-sm line-clamp-2">Personal projects and experiments</p>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs bg-honey-orange/20 text-honey-orange px-3 py-1 rounded-full font-medium">Live Demo</span>
+                        <i class="fas fa-external-link-alt text-honey-orange ml-auto group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <a href="https://moekyawaung-microsoft.github.io/" target="_blank" class="github-card fade-in-up group bg-gradient-to-br from-white to-peach/20 backdrop-blur-sm border border-peach/30 hover:border-honey-orange/50 hover:shadow-2xl transition-all duration-300 rounded-2xl p-8 h-48 flex flex-col justify-between hover:-translate-y-2">
+                    <div>
+                        <h4 class="font-bold text-xl text-deep-brown group-hover:text-honey-orange mb-2 truncate">Microsoft Tech</h4>
+                        <p class="text-text-light text-sm line-clamp-2">Microsoft technologies and Azure integrations</p>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs bg-honey-orange/20 text-honey-orange px-3 py-1 rounded-full font-medium">Live Demo</span>
+                        <i class="fas fa-external-link-alt text-honey-orange ml-auto group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+            </div>
+
+            <!-- View All Button -->
+            <div class="text-center fade-in-up">
+                <a href="https://github.com/Dev-moe-kyawaung/" target="_blank" class="btn-primary text-lg px-12 py-4">
+                    View All 43+ Repositories <i class="fas fa-arrow-right ml-3"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lovable WPA Links Section -->
+    <section class="py-24 bg-gradient-to-b from-honey-orange/5 to-peach/10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+            <div class="text-center mb-20 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-peach to-deep-brown bg-clip-text text-transparent mb-6">
+                    Lovable WPA Collection
+                </h2>
+                <p class="text-xl text-text-light max-w-2xl mx-auto">Curated collection of Lovable Web Presence Apps showcasing modern development</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <a href="https://happy-cv-creator.lovable.app" target="_blank" class="lovable-card fade-in-up group p-6 bg-white/60 backdrop-blur-sm border border-peach/30 hover:border-honey-orange rounded-2xl hover:shadow-xl hover:-translate-y-2 transition-all duration-300 h-40 flex flex-col justify-between hover:bg-white">
+                    <div>
+                        <h4 class="font-bold text-lg text-deep-brown group-hover:text-honey-orange mb-2 line-clamp-1">Happy CV Creator</h4>
+                        <p class="text-text-light text-sm line-clamp-2">Professional CV builder with beautiful templates</p>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-xs bg-gradient-to-r from-honey-orange to-peach text-white px-3 py-1 rounded-full font-medium">Live</span>
+                        <i class="fas fa-external-link-alt text-honey-orange ml-auto text-xl group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <a href="https://moekyawaung.lovable.app" target="_blank" class="lovable-card fade-in-up group p-6 bg-white/60 backdrop-blur-sm border border-peach/30 hover:border-honey-orange rounded-2xl hover:shadow-xl hover:-translate-y-2 transition-all duration-300 h-40 flex flex-col justify-between hover:bg-white">
+                    <div>
+                        <h4 class="font-bold text-lg text-deep-brown group-hover:text-honey-orange mb-2 line-clamp-1">MoeKyawAung</h4>
+                        <p class="text-text-light text-sm line-clamp-2">Personal portfolio showcase</p>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-xs bg-gradient-to-r from-honey-orange to-peach text-white px-3 py-1 rounded-full font-medium">Live</span>
+                        <i class="fas fa-external-link-alt text-honey-orange ml-auto text-xl group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <a href="https://moekyaw-dev.lovable.app" target="_blank" class="lovable-card fade-in-up group p-6 bg-white/60 backdrop-blur-sm border border-peach/30 hover:border-honey-orange rounded-2xl hover:shadow-xl hover:-translate-y-2 transition-all duration-300 h-40 flex flex-col justify-between hover:bg-white">
+                    <div>
+                        <h4 class="font-bold text-lg text-deep-brown group-hover:text-honey-orange mb-2 line-clamp-1">MoeKyaw Dev</h4>
+                        <p class="text-text-light text-sm line-clamp-2">Developer-focused portfolio</p>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-xs bg-gradient-to-r from-honey-orange to-peach text-white px-3 py-1 rounded-full font-medium">Live</span>
+                        <i class="fas fa-external-link-alt text-honey-orange ml-auto text-xl group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <a href="https://the-cv-palette.lovable.app" target="_blank" class="lovable-card fade-in-up group p-6 bg-white/60 backdrop-blur-sm border border-peach/30 hover:border-honey-orange rounded-2xl hover:shadow-xl hover:-translate-y-2 transition-all duration-300 h-40 flex flex-col justify-between hover:bg-white">
+                    <div>
+                        <h4 class="font-bold text-lg text-deep-brown group-hover:text-honey-orange mb-2 line-clamp-1">CV Palette</h4>
+                        <p class="text-text-light text-sm line-clamp-2">Colorful CV design platform</p>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-xs bg-gradient-to-r from-honey-orange to-peach text-white px-3 py-1 rounded-full font-medium">Live</span>
+                        <i class="fas fa-external-link-alt text-honey-orange ml-auto text-xl group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Collections Section -->
+    <section class="py-24 bg-gradient-to-b from-deep-brown/5 to-warm-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+            <div class="text-center mb-20 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-peach to-honey-orange bg-clip-text text-transparent mb-6">
+                    Contact Options
+                </h2>
+                <p class="text-xl text-text-light max-w-2xl mx-auto mb-16">Multiple professional email addresses for different project needs</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="email-card fade-in-up p-8 bg-white/50 backdrop-blur-sm border border-peach/30 rounded-2xl hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+                    <div class="text-3xl mb-4 text-honey-orange">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4 class="font-bold text-xl text-deep-brown mb-4 group-hover:text-honey-orange">Primary</h4>
+                    <a href="mailto:moekyawaung@programmer.net" class="text-text-light hover:text-honey-orange font-mono text-lg block mb-2 truncate">moekyawaung@programmer.net</a>
+                    <p class="text-sm text-text-light">General development inquiries</p>
+                </div>
+
+                <div class="email-card fade-in-up p-8 bg-white/50 backdrop-blur-sm border border-peach/30 rounded-2xl hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+                    <div class="text-3xl mb-4 text-peach">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4 class="font-bold text-xl text-deep-brown mb-4 group-hover:text-peach">Tech Support</h4>
+                    <a href="mailto:moekyawaung@technologist.com" class="text-text-light hover:text-peach font-mono text-lg block mb-2 truncate">moekyawaung@technologist.com</a>
+                    <p class="text-sm text-text-light">Technical consultations</p>
+                </div>
+
+                <div class="email-card fade-in-up p-8 bg-white/50 backdrop-blur-sm border border-peach/30 rounded-2xl hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+                    <div class="text-3xl mb-4 text-deep-brown">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h4 class="font-bold text-xl text-deep-brown mb-4 group-hover:text-deep-brown">Business</h4>
+                    <a href="mailto:moekyawaung@engineer.com" class="text-text-light hover:text-deep-brown font-mono text-lg block mb-2 truncate">moekyawaung@engineer.com</a>
+                    <p class="text-sm text-text-light">Business partnerships</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-24 bg-warm-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+            <div class="text-center mb-20 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-honey-orange to-deep-brown bg-clip-text text-transparent mb-6">
+                    Pricing Plans
+                </h2>
+                <p class="text-xl text-text-light max-w-2xl mx-auto">Flexible pricing for different project requirements</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="pricing-card fade-in-up bg-white/70 backdrop-blur-sm border-4 border-peach/30 rounded-3xl p-10 text-center hover:border-honey-orange hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 group relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-peach/20 to-transparent pointer-events-none"></div>
+                    <div class="relative">
+                        <h3 class="text-2xl font-bold text-deep-brown mb-6 group-hover:text-honey-orange">Starter</h3>
+                        <div class="text-4xl font-bold text-honey-orange mb-4">$299</div>
+                        <div class="text-2xl font-light text-text-light mb-8">one-time</div>
+                        <ul class="space-y-3 mb-12 text-left">
+                            <li class="flex items-center"><i class="fas fa-check text-honey-orange mr-3"></i>Basic Android App</li>
+                            <li class="flex items-center"><i class="fas fa-check text-honey-orange mr-3"></i>Jetpack Integration</li>
+                            <li class="flex items-center"><i class="fas fa-check text-honey-orange mr-3"></i>Firebase Setup</li>
+                            <li class="flex items-center"><i class="fas fa-check text-honey-orange mr-3"></i>Play Store Ready</li>
+                        </ul>
+                        <a href="#contact" class="btn-primary w-full group-hover:bg-deep-brown">Get Started</a>
+                    </div>
+                </div>
+
+                <div class="pricing-card fade-in-up bg-gradient-to-br from-honey-orange to-peach border-4 border-transparent rounded-3xl p-10 text-center shadow-2xl hover:shadow-3xl hover:-translate-y-4 transition-all duration-500 relative overflow-hidden md:-mt-4 md:mb-4">
+                    <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
+                    <div class="relative">
+                        <div class="bg-deep-brown/20 text-deep-brown px-4 py-2 rounded-full text-sm font-bold inline-block mb-6">Most Popular</div>
+                        <h3 class="text-2xl font-bold text-white mb-6">Professional</h3>
+                        <div class="text-4xl font-bold text-white mb-4">$1,099</div>
+                        <div class="text-2xl font-light text-white/90 mb-8">one-time</div>
+                        <ul class="space-y-3 mb-12 text-left">
+                            <li class="flex items-center"><i class="fas fa-check text-white mr-3"></i>Complete Android App</li>
+                            <li class="flex items-center"><i class="fas fa-check text-white mr-3"></i>Full Jetpack Suite</li>
+                            <li class="flex items-center"><i class="fas fa-check text-white mr-3"></i>Advanced Firebase</li>
+                            <li class="flex items-center"><i class="fas fa-check text-white mr-3"></i>CI/CD Pipeline</li>
+                            <li class="flex items-center"><i class="fas fa-check text-white mr-3"></i>3 Months Support</li>
+                        </ul>
+                        <a href="#contact" class="bg-white text-honey-orange font-bold py-4 px-8 rounded-2xl hover:bg-deep-brown hover:text-white transition-all duration-300">Choose Professional</a>
+                    </div>
+                </div>
+
+                <div class="pricing-card fade-in-up bg-white/70 backdrop-blur-sm border-4 border-peach/30 rounded-3xl p-10 text-center hover:border-honey-orange hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 group relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-deep-brown/20 to-transparent pointer-events-none"></div>
+                    <div class="relative">
+                        <h3 class="text-2xl font-bold text-deep-brown mb-6 group-hover:text-deep-brown">Enterprise</h3>
+                        <div class="text-4xl font-bold text-deep-brown mb-4 group-hover:text-honey-orange">$1,999+</div>
+                        <div class="text-2xl font-light text-text-light mb-8">one-time</div>
+                        <ul class="space-y-3 mb-12 text-left">
+                            <li class="flex items-center"><i class="fas fa-check text-deep-brown mr-3"></i>Custom Enterprise App</li>
+                            <li class="flex items-center"><i class="fas fa-check text-deep-brown mr-3"></i>Complete Tech Stack</li>
+                            <li class="flex items-center"><i class="fas fa-check text-deep-brown mr-3"></i>DevOps & Security</li>
+                            <li class="flex items-center"><i class="fas fa-check text-deep-brown mr-3"></i>6 Months Support</li>
+                            <li class="flex items-center"><i class="fas fa-check text-deep-brown mr-3"></i>Team Training</li>
+                        </ul>
+                        <a href="#contact" class="btn-secondary w-full border-deep-brown group-hover:bg-deep-brown">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-gradient-to-b from-warm-white to-peach/20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+            <div class="text-center mb-20 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-honey-orange to-peach bg-clip-text text-transparent mb-6">
+                    Frequently Asked Questions
+                </h2>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="faq-item fade-in-up border border-peach/30 rounded-2xl overflow-hidden bg-white/60 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
+                    <button class="faq-question w-full p-8 text-left font-bold text-xl text-deep-brown hover:text-honey-orange focus:outline-none focus:ring-4 focus:ring-honey-orange/20">
+                        What technologies do you specialize in?
+                        <i class="fas fa-chevron-down float-right transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer p-8 bg-peach/10 max-h-0 overflow-hidden transition-all duration-500">
+                        <p class="text-text-light leading-relaxed">I specialize in modern Android development using <strong>Kotlin</strong>, <strong>Jetpack Compose</strong>, <strong>ViewModel</strong>, <strong>Room</strong>, <strong>Firebase</strong>, and REST APIs. I follow clean architecture principles and focus on scalable, secure applications.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in-up border border-peach/30 rounded-2xl overflow-hidden bg-white/60 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
+                    <button class="faq-question w-full p-8 text-left font-bold text-xl text-deep-brown hover:text-honey-orange focus:outline-none focus:ring-4 focus:ring-honey-orange/20">
+                        How long does it take to build an Android app?
+                        <i class="fas fa-chevron-down float-right transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer p-8 bg-peach/10 max-h-0 overflow-hidden transition-all duration-500">
+                        <p class="text-text-light leading-relaxed">Timeline varies by complexity: <strong>Starter apps</strong> (2-4 weeks), <strong>Professional apps</strong> (6-10 weeks), <strong>Enterprise solutions</strong> (3-6 months). Includes testing, optimization, and Play Store deployment.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in-up border border-peach/30 rounded-2xl overflow-hidden bg-white/60 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
+                    <button class="faq-question w-full p-8 text-left font-bold text-xl text-deep-brown hover:text-honey-orange focus:outline-none focus:ring-4 focus:ring-honey-orange/20">
+                        Do you provide post-launch support?
+                        <i class="fas fa-chevron-down float-right transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer p-8 bg-peach/10 max-h-0 overflow-hidden transition-all duration-500">
+                        <p class="text-text-light leading-relaxed">Yes! All packages include post-launch support: <strong>Starter</strong> (2 weeks), <strong>Professional</strong> (3 months), <strong>Enterprise</strong> (6 months). Additional support available.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative">
+        <!-- Google Maps Background -->
+        <div class="absolute inset-0 opacity-20">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.189414974663!2d96.16414461477036!3d16.842488988519496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c194a9d5c4d8b7%3A0x8c8e8c8e8c8e8c8e!2sYangon%2C%20Myanmar%20(Burma)!5e0!3m2!1sen!2sus!4v1630000000000" 
+                    class="w-full h-full" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+            </iframe>
+        </div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
+            <div class="text-center mb-20 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-honey-orange to-peach bg-clip-text text-transparent mb-6">
+                    Let's Build Something Amazing
+                </h2>
+                <p class="text-xl text-text-light max-w-2xl mx-auto">Ready to transform your idea into a production-ready Android application?</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="space-y-8 fade-in-up">
+                    <div class="p-8 bg-white/60 backdrop-blur-sm rounded-3xl border border-peach/30 hover:shadow-xl transition-all duration-300">
+                        <h3 class="text-2xl font-bold text-deep-brown mb-6">Get in Touch</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-honey-orange rounded-2xl flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">Phone</h4>
+                                    <a href="tel:+959889000889" class="text-xl font-mono hover:text-honey-orange transition-colors">+95 9 889 000 889</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-peach rounded-2xl flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-envelope text-deep-brown"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">Email</h4>
+                                    <a href="mailto:moekyawaung@programmer.net" class="text-xl font-mono hover:text-peach transition-colors">moekyawaung@programmer.net</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-deep-brown rounded-2xl flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fab fa-github text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">GitHub</h4>
+                                    <a href="https://github.com/Dev-moe-kyawaung/" target="_blank" class="text-xl font-mono hover:text-deep-brown transition-colors">@Dev-moe-kyawaung</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="p-8 bg-white/60 backdrop-blur-sm rounded-3xl border border-peach/30">
+                        <h3 class="text-2xl font-bold text-deep-brown mb-8 text-center">Connect With Me</h3>
+                        <div class="flex justify-center space-x-6">
+                            <a href="https://gravatar.com/moekyawaung13721" target="_blank" class="w-14 h-14 bg-honey-orange/20 hover:bg-honey-orange text-honey-orange hover:text-white rounded-2xl flex items-center justify-center text-2xl transition-all duration-300 hover:scale-110" title="Gravatar 1">
+                                <i class="fas fa-user"></i>
+                            </a>
+                            <a href="https://gravatar.com/moekyawaung2026" target="_blank" class="w-14 h-14 bg-peach/20 hover:bg-peach text-peach hover:text-deep-brown rounded-2xl flex items-center justify-center text-2xl transition-all duration-300 hover:scale-110" title="Gravatar 2">
+                                <i class="fas fa-user-circle"></i>
+                            </a>
+                            <a href="https://github.com/Dev-moe-kyawaung/" target="_blank" class="w-14 h-14 bg-deep-brown/20 hover:bg-deep-brown text-deep-brown hover:text-white rounded-2xl flex items-center justify-center text-2xl transition-all duration-300 hover:scale-110">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="w-14 h-14 bg-gray-200 hover:bg-honey-orange text-gray-700 hover:text-white rounded-2xl flex items-center justify-center text-2xl transition-all duration-300 hover:scale-110">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="fade-in-up">
+                    <form class="p-8 bg-white/70 backdrop-blur-sm rounded-3xl border border-peach/30 hover:shadow-2xl transition-all duration-300 space-y-6" id="contactForm">
+                        <div>
+                            <h3 class="text-2xl font-bold text-deep-brown mb-2">Send Message</h3>
+                            <p class="text-text-light">I'd love to hear about your project</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-text-light mb-2" for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required 
+                                       class="w-full px-4 py-3 border border-peach/50 rounded-xl focus:ring-4 focus:ring-honey-orange/20 focus:border-honey-orange transition-all duration-300 bg-white/50 backdrop-blur-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-light mb-2" for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required 
+                                       class="w-full px-4 py-3 border border-peach/50 rounded-xl focus:ring-4 focus:ring-honey-orange/20 focus:border-honey-orange transition-all duration-300 bg-white/50 backdrop-blur-sm">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-text-light mb-2" for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required 
+                                   class="w-full px-4 py-3 border border-peach/50 rounded-xl focus:ring-4 focus:ring-honey-orange/20 focus:border-honey-orange transition-all duration-300 bg-white/50 backdrop-blur-sm">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-text-light mb-2" for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required 
+                                      class="w-full px-4 py-3 border border-peach/50 rounded-xl focus:ring-4 focus:ring-honey-orange/20 focus:border-honey-orange transition-all duration-300 resize-vertical bg-white/50 backdrop-blur-sm"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-gradient-to-r from-honey-orange to-deep-brown text-white font-bold py-4 px-8 rounded-2xl hover:from-deep-brown hover:to-honey-orange hover:shadow-xl hover:scale-105 transition-all duration-300 transform">
+                            Send Message
+                            <i class="fas fa-paper-plane ml-3"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-20 bg-gradient-to-r from-deep-brown to-honey-orange">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+            <div class="fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Stay Updated</h2>
+                <p class="text-xl text-white/90 mb-12 max-w-2xl mx-auto">Get the latest updates on Android development and new project launches</p>
+                
+                <form class="max-w-xl mx-auto flex flex-col sm:flex-row gap-4" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email" required 
+                           class="flex-1 px-6 py-4 rounded-2xl text-lg bg-white/20 backdrop-blur-sm border-2 border-white/30 focus:border-white focus:outline-none text-white placeholder-white/70">
+                    <button type="submit" class="bg-white text-deep-brown font-bold py-4 px-12 rounded-2xl hover:bg-peach hover:shadow-xl transition-all duration-300 whitespace-nowrap">
+                        Subscribe Now
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-deep-brown text-white pt-24 pb-12 relative overflow-hidden">
+        <!-- Footer Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="pattern"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand -->
+                <div class="fade-in-up">
+                    <a href="#home" class="text-3xl font-bold bg-gradient-to-r from-honey-orange to-peach bg-clip-text text-transparent mb-4 block">Moe-Kyaw-Aung V28</a>
+                    <p class="text-white/80 leading-relaxed mb-6 max-w-md">Android Senior Developer specializing in modern Jetpack and Kotlin development.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/Dev-moe-kyawaung/" class="w-12 h-12 bg-white/20 hover:bg-white rounded-xl flex items-center justify-center text-white hover:text-deep-brown transition-all duration-300" target="_blank">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/20 hover:bg-white rounded-xl flex items-center justify-center text-white hover:text-deep-brown transition-all duration-300">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/20 hover:bg-white rounded-xl flex items-center justify-center text-white hover:text-deep-brown transition-all duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="fade-in-up">
+                    <h4 class="text-xl font-bold text-white mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="hover:text-peach transition-colors text-white/80 hover:text-white">Home</a></li>
+                        <li><a href="#about" class="hover:text-peach transition-colors text-white/80 hover:text-white">About</a></li>
+                        <li><a href="#skills" class="hover:text-peach transition-colors text-white/80 hover:text-white">Skills</a></li>
+                        <li><a href="#portfolio" class="hover:text-peach transition-colors text-white/80 hover:text-white">Portfolio</a></li>
+                        <li><a href="#contact" class="hover:text-peach transition-colors text-white/80 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div class="fade-in-up">
+                    <h4 class="text-xl font-bold text-white mb-6">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-peach transition-colors text-white/80 hover:text-white">Android Development</a></li>
+                        <li><a href="#" class="hover:text-peach transition-colors text-white/80 hover:text-white">Kotlin & Jetpack</a></li>
+                        <li><a href="#" class="hover:text-peach transition-colors text-white/80 hover:text-white">Firebase Integration</a></li>
+                        <li><a href="#" class="hover:text-peach transition-colors text-white/80 hover:text-white">App Store Launch</a></li>
+                        <li><a href="#pricing" class="hover:text-peach transition-colors text-white/80 hover:text-white">Custom Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="fade-in-up">
+                    <h4 class="text-xl font-bold text-white mb-6">Contact Info</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-honey-orange text-xl"></i>
+                            <span class="text-white/80">+95 9 889 000 889</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-honey-orange text-xl"></i>
+                            <span class="text-white/80 font-mono">moekyawaung@programmer.net</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-map-marker-alt text-peach text-xl"></i>
+                            <span class="text-white/80">Yangon, Myanmar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Newsletter Signup -->
+            <div class="border-t border-white/20 pt-12 fade-in-up">
+                <div class="text-center">
+                    <h4 class="text-2xl font-bold text-white mb-6">Newsletter Signup</h4>
+                    <form class="max-w-md mx-auto flex gap-3" id="footerNewsletter">
+                        <input type="email" placeholder="Your email" required 
+                               class="flex-1 px-4 py-3 rounded-xl bg-white/20 backdrop-blur-sm border border-white/30 focus:border-white focus:outline-none text-white placeholder-white/70">
+                        <button type="submit" class="bg-honey-orange hover:bg-peach text-deep-brown font-bold px-8 py-3 rounded-xl transition-all duration-300 whitespace-nowrap">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-white/20 pt-8 mt-12 text-center fade-in-up">
+                <p class="text-white/60">&copy; 2026 Moe Kyaw Aung - Android Senior Developer. All rights reserved. V28</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="sticky-cta bg-honey-orange hover:bg-deep-brown text-white p-4 rounded-full shadow-lg border-4 border-white/20 hover:border-honey-orange/50 transition-all duration-300 z-40">
+        <i class="fas fa-chevron-up text-xl"></i>
+    </button>
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox" class="fixed inset-0 bg-black/90 z-[9999] hidden flex items-center justify-center p-8">
+        <button id="lightboxClose" class="absolute top-8 right-8 text-white text-3xl hover:text-honey-orange transition-colors">&times;</button>
+        <img id="lightboxImg" src="" alt="Lightbox" class="max-w-full max-h-full object-contain">
+        <button id="lightboxPrev" class="absolute left-8 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-honey-orange">&lt;</button>
+        <button id="lightboxNext" class="absolute right-8 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-honey-orange">&gt;</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        });
+
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX + 'px';
+                cursorFollower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            
+            // Update icon
+            const icon = themeToggle.querySelector('i');
+            icon.classList.toggle('fa-sun');
+            icon.classList.toggle('fa-moon');
+            
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'dark') {
+            themeToggle.querySelector('i').classList.replace('fa-sun', 'fa-moon');
+        }
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth Scroll Navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+                
+                // Close mobile menu
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.classList.remove('active');
+            });
+        });
+
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Stats Counter Animation
+        const animateCounters = () => {
+            const counters = document.querySelectorAll('[data-target]');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                updateCounter();
+            });
+        };
+
+        // Trigger counters on scroll
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+        
+        document.querySelector('.stats-section')?.parentElement && statsObserver.observe(document.querySelector('.stats-section'));
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Sticky CTA
+        window.addEventListener('scroll', () => {
+            const stickyCta = document.querySelector('.sticky-cta');
+            if (window.scrollY > 1000) {
+                stickyCta.classList.add('show');
+            } else {
+                stickyCta.classList.remove('show');
+            }
+        });
+
+        // Contact Form Validation & Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Simple validation
+            const formData = new FormData(contactForm);
+            const name = formData.get('name').trim();
+            const email = formData.get('email').trim();
+            const message = formData.get('message').trim();
+            
+            if (name && email && message) {
+                // Simulate form submission
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+                submitBtn.disabled = true;
+                
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                alert('Thank you! Your message has been sent. I\'ll get back to you within 24 hours.');
+                contactForm.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Newsletter Forms
+        document.querySelectorAll('#newsletterForm, #footerNewsletter').forEach(form => {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = form.querySelector('input[type="email"]').value;
+                if (email) {
+                    alert('Thank you for subscribing! 🎉');
+                    form.reset();
+                }
+            });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                // Close other answers
+                document.querySelectorAll('.faq-answer').forEach(a => {
+                    if (a !== answer) {
+                        a.style.maxHeight = '0';
+                        a.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                    }
+                });
+                
+                // Toggle current answer
+                const isOpen = answer.style.maxHeight !== '0px';
+                answer.style.maxHeight = isOpen ? '0' : answer.scrollHeight + 'px';
+                icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+            });
+        });
+
+        // Hero Canvas Animation
+        const canvas = document.getElementById('heroCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        
+        window.addEventListener('resize', resizeCanvas);
+        
+        const particles = [];
+        const particleCount = 100;
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+                if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+            }
+            
+            draw() {
+                ctx.fillStyle = 'rgba(255, 150, 68, 0.6)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+        
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            // Connect nearby particles
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 100) {
+                        ctx.strokeStyle = `rgba(255, 150, 68, ${1 - distance / 100})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            
+            requestAnimationFrame(animateCanvas);
+        }
+        animateCanvas();
+
+        // Lightbox Gallery
+        let currentLightboxIndex = 0;
+        const lightboxImages = [
+            'https://res.cloudinary.com/dye5qpwii/image/upload/v1778763535/MKA_25_lbx6fb.webp',
+            'https://res.cloudinary.com/dye5qpwii/image/upload/v1778763531/MKA_12_iv8kpm.webp',
+            'https://res.cloudinary.com/dye5qpwii/image/upload/v1778747388/image-1_1_khsx9s.png'
+        ];
+        
+        document.querySelectorAll('.portfolio-card').forEach((card, index) => {
+            card.addEventListener('click', () => {
+                currentLightboxIndex = index;
+                showLightbox();
+            });
+        });
+        
+        function showLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            lightboxImg.src = lightboxImages[currentLightboxIndex % lightboxImages.length];
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        document.getElementById('lightboxClose').addEventListener('click', () => {
+            document.getElementById('lightbox').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        document.getElementById('lightboxPrev').addEventListener('click', () => {
+            currentLightboxIndex--;
+            showLightbox();
+        });
+        
+        document.getElementById('lightboxNext').addEventListener('click', () => {
+            currentLightboxIndex++;
+            showLightbox();
+        });
+        
+        // Close lightbox on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.getElementById('lightbox').classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Parallax Effect for Sections
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelectorAll('.parallax-bg');
+            parallax.forEach(el => {
+                const speed = 0.5;
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Button Hover Animations
+        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                btn.style.transform = 'translateY(-2px)';
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Accessibility: Skip to main content
+        const skipLink = document.createElement('a');
+        skipLink.href = '#home';
+        skipLink.textContent = 'Skip to content';
+        skipLink.className = 'sr-only focus:not-sr-only focus:absolute focus:top-20 focus:left-4 focus:bg-honey-orange focus:text-white focus:py-2 focus:px-4 focus:rounded focus:z-50';
+        document.body.prepend(skipLink);
+
+        console.log('🎉 Moe-Kyaw-Aung-Portfolio V28 loaded successfully! 🚀');
+    </script>
+</body>
+</html>
